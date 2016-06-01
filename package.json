@@ -1,0 +1,26 @@
+{
+  "name": "ko-popup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "knockout": "^3.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewnitschke/ko-popup.git"
+  },
+  "author": "Matthew Nitschke <matt@pyrtio.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewnitschke/ko-popup/issues"
+  },
+  "homepage": "https://github.com/matthewnitschke/ko-popup#readme"
+}
