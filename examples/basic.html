@@ -6,15 +6,27 @@
 
   <link rel="stylesheet" href="../src/ko-popup.css">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
   <script src="../src/ko-popup.js"></script>
 </head>
 <body>
 
   <input type="button" value="Open Popup" data-bind="click: openPopup"/>
+  <input type="button" value="Open Other Popup" data-bind="click: openOtherPopup"/>
 
-  <popup params="{visible: popupVisible}">
-    <div>Bler</h1>
+  <popup params="{ visible: popupVisible }">
+    <div>This is a basic Pop-up</div>
+    <div>It has all default parameters</div>
+  </popup>
+
+  <popup params="{ visible: otherPopupVisible, closeButton: false, background: '#F27474' }">
+    <div>This is the other pop-up</div>
+    <br>
+    <div>It is passing in:</div>
+    <div>closeButton: false</div>
+    <div>background: '#BBB'</div>
   </popup>
 
   <script>
@@ -22,10 +34,16 @@
     ko.applyBindings(function(){
       var self = this;
       self.popupVisible = ko.observable(false);
+      self.otherPopupVisible = ko.observable(false);
 
       self.openPopup = function(){
         self.popupVisible(true);
       }
+
+      self.openOtherPopup = function(){
+        self.otherPopupVisible(true);
+      }
+
     });
   </script>
 </body>

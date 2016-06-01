@@ -1,17 +1,35 @@
 .popup {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   z-index: 999;
+   width: 100%;
+   height: 100%;
+
+   top: 0;
+   left: 0;
+   background: rgba(0,0,0,0.75);
+
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+   align-items: center;
+}
+
+.popup-content-wrapper {
+  margin-top: -4rem; /* Offsets the popup window. It looks better higher like this*/
+  display: inline-block;
+}
+
+.popup-close-button {
+  float: right;
+  display: inline-block;
+  color: #F27474;
+
+  margin-right: -2rem;
+  font-size: 2rem;
+  margin-top: -2.5rem;
+  cursor:pointer;
 }
 
 .popup-content {
-  background-color: #FFF;
-  display: inline-block;
-  padding:1rem;
+  padding: 1rem;
 }
