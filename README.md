@@ -28,7 +28,7 @@ These options are passed into the params on the component
 | viewModel   | null          | A view model for the lightbox |
 | closeMethod | null          | A method that is run when the lightbox is closed |
 
-## Example usage
+## Options Example
 ```html
 <popup params="{visible: isVisible, closeButton: false, background: '#BBB'}">
   <div>I'm a pop-up!</div>
