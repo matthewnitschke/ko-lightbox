@@ -21,10 +21,12 @@ A lightweight basic knockout js component popup
 #Options
 There are currently two options you can pass into the component
 
-| Option Key | Default Value | Explination |
-|------------|---------------|-------------|
-| closeButton | true         | Shows/Hides the close button |
-| background | '#FFF'        | The background color of the pop-up |
+| Option Key  | Default Value | Explination |
+|-------------|---------------|-------------|
+| closeButton | true          | Shows/Hides the close button |
+| background  | '#FFF'        | The background color of the pop-up |
+| viewModel   | null          | A view model for the lightbox |
+| closeMethod | null          | A method that is run when the lightbox is closed |
 
 ## Example usage
 ```html
