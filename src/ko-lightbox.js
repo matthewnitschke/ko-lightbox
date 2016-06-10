@@ -1,4 +1,4 @@
-ko.components.register("popup", {
+ko.components.register("lightbox", {
   viewModel: function(params){
     var self = this;
 
@@ -26,10 +26,10 @@ ko.components.register("popup", {
     }
 
   },
-  template: "<div class='popup' data-bind='visible: visible'>\
-              <div class='popup-content-wrapper'>\
-                <div class='popup-close-button' data-bind='if: closeButton'><i class='fa fa-times' aria-hidden='true' data-bind='click: close'></i></div>\
-                <div class='popup-content' data-bind='attr: {style: \"background-color: \" + background} '>\
+  template: "<div class='lightbox' data-bind='visible: visible'>\
+              <div class='lightbox-content-wrapper'>\
+                <div class='lightbox-close-button' data-bind='if: closeButton'><i class='fa fa-times' aria-hidden='true' data-bind='click: close'></i></div>\
+                <div class='lightbox-content' data-bind='attr: {style: \"background-color: \" + background} '>\
                   <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
                 </div>\
               </div>\
