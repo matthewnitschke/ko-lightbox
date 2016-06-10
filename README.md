@@ -19,7 +19,7 @@ A lightweight basic knockout js component popup
 
 
 #Options
-There are currently two options you can pass into the component
+These options are passed into the params on the component
 
 | Option Key  | Default Value | Explination |
 |-------------|---------------|-------------|
