@@ -9,8 +9,15 @@ ko.components.register("lightbox", {
 
         var options = extend(defaults, params);
 
-        self.viewModel = params.viewModel;
-        self.viewModel.lightbox = self;
+        self.closeMethod = params.closeMethod;
+
+        if (params.viewModel) {
+            self.viewModel = params.viewModel;
+            self.viewModel.lightbox = self;
+        } else {
+            self.viewModel = self;
+        }
+
 
         self.visible = params.visible;
 
@@ -18,6 +25,9 @@ ko.components.register("lightbox", {
         self.background = options.background;
 
         self.close = function () {
+            if (self.closeMethod) {
+                self.closeMethod();
+            }
             self.visible(false);
         }
 
@@ -31,7 +41,7 @@ ko.components.register("lightbox", {
     },
     template: "<div class='ko__lightbox' data-bind='visible: visible'>\
               <div class='ko__lightbox-content-wrapper' data-bind='with: viewModel'>\
-                <div class='ko__lightbox-close-button' data-bind='if: $parent.closeButton'><i class='fa fa-times' aria-hidden='true' data-bind='click: close'></i></div>\
+                <div class='ko__lightbox-close-button' data-bind='if: $parent.closeButton'><i class='fa fa-times' aria-hidden='true' data-bind='click: $parent.close'></i></div>\
                 <div class='ko__lightbox-content' data-bind='attr: {style: \"background-color: \" + $parent.background} '>\
                   <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
                 </div>\
