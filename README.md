@@ -1,4 +1,4 @@
-# ko-popup
+# ko-lightbox
 A lightweight basic knockout js component popup
 
 # Installation
