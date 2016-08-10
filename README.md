@@ -3,18 +3,18 @@ A lightweight basic knockout js component popup
 
 # Installation
 ```html
-<link rel="stylesheet" href="/path/to/ko-popup.css" />
+<link rel="stylesheet" href="/path/to/ko-lightbox.css" />
 
 <script src="/path/to/knockout.js"></script>
-<script src="/path/to/ko-popup.js"></script>
+<script src="/path/to/ko-lightbox.js"></script>
 ```
 
 
 #Usage
 ```html
-<popup params="{visible: isVisible}">
-  <h1>This is popup information</h1>
-</popup>
+<lightbox params="{visible: isVisible}">
+  <h1>This is a lightbox</h1>
+</lightbox>
 ```
 
 
@@ -24,15 +24,15 @@ These options are passed into the params on the component
 | Option Key  | Default Value | Explination |
 |-------------|---------------|-------------|
 | closeButton | true          | Shows/Hides the close button |
-| background  | '#FFF'        | The background color of the pop-up |
+| background  | '#FFF'        | The background color of the lightbox |
 | viewModel   | null          | A view model for the lightbox |
 | closeMethod | null          | A method that is run when the lightbox is closed |
 
 ## Options Example
 ```html
-<popup params="{visible: isVisible, closeButton: false, background: '#BBB'}">
-  <div>I'm a pop-up!</div>
-</popup>
+<lightbox params="{visible: isVisible, closeButton: false, background: '#BBB'}">
+  <div>I'm a lightbox!</div>
+</lightbox>
 ```
 
 Please see the examples folder for more examples

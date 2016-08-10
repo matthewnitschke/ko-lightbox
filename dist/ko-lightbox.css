@@ -1,4 +1,4 @@
-.popup {
+.ko__lightbox {
   position: fixed;
    z-index: 999;
    width: 100%;
@@ -14,12 +14,12 @@
    align-items: center;
 }
 
-.popup-content-wrapper {
+.ko__lightbox-content-wrapper {
   margin-top: -4rem; /* Offsets the popup window. It looks better higher like this*/
   display: inline-block;
 }
 
-.popup-close-button {
+.ko__lightbox-close-button {
   float: right;
   display: inline-block;
   color: #F27474;
@@ -30,6 +30,6 @@
   cursor:pointer;
 }
 
-.popup-content {
+.ko__lightbox-content {
   padding: 1rem;
 }
