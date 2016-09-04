@@ -1,4 +1,4 @@
-ko.components.register("lightbox", {
+ko.components.register("ko-lightbox", {
     viewModel: function (params) {
         var self = this;
 
