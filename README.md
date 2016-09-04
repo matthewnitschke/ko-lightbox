@@ -12,9 +12,9 @@ A lightweight basic knockout js component popup
 
 #Usage
 ```html
-<lightbox params="{visible: isVisible}">
+<ko-lightbox params="{visible: isVisible}">
   <h1>This is a lightbox</h1>
-</lightbox>
+</ko-lightbox>
 ```
 
 
@@ -30,9 +30,9 @@ These options are passed into the params on the component
 
 ## Options Example
 ```html
-<lightbox params="{visible: isVisible, closeButton: false, background: '#BBB'}">
+<ko-lightbox params="{visible: isVisible, closeButton: false, background: '#BBB'}">
   <div>I'm a lightbox!</div>
-</lightbox>
+</ko-lightbox>
 ```
 
 Please see the examples folder for more examples
