@@ -7,7 +7,8 @@
     "example": "examples"
   },
   "dependencies": {
-    "knockout": "^3.4.0"
+    "knockout": "^3.4.0",
+    "ko-component-page": "^1.1.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ko-lightbox</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
+
+  <link rel="stylesheet" href="../node_modules/ko-component-page/dist/ko-component-page.css">
+  <script src="../node_modules/ko-component-page/dist/ko-component-page.js"></script>
+
+  <link rel="stylesheet" href="../src/ko-lightbox.css">
+  <script src="../src/ko-lightbox.js"></script>
+
+</head>
+<body>
+
+  <ko-component-page params="{label: 'Basic Lightbox'}">
+    <input type="button" value="Open Lightbox" data-bind="click: openLightbox">
+
+    <ko-lightbox params="{visible: lightboxVisible}">I am a lightbox with default parameters</ko-lightbox>
+
+    <ko-component-page-script>
+      {
+        lightboxVisible: ko.observable(false),
+        openLightbox: function(){
+          this.lightboxVisible(true);
+        }
+      }
+    </ko-component-page-script>
+
+  </ko-component-page>
+
+  <ko-component-page params="{label: 'Custom Close Method', description: 'Using the \'closeMethod\' param you can run a method right before the lightbox is closed'}">
+    <input type="button" value="Open Lightbox" data-bind="click: openLightbox"/>
+
+    <ko-lightbox params="{ visible: lightboxVisible, closeMethod: closing }">
+      <div>This lightbox run a custom method when closed</div>
+    </ko-lightbox>
+
+    <ko-component-page-script>
+      {
+        lightboxVisible: ko.observable(false),
+        openLightbox: function(){
+          this.lightboxVisible(true);
+        },
+        closing: function(){
+          alert("Look! I ran before the lightbox closed!");
+        }
+      }
+    </ko-component-page-script>
+  </ko-component-page>
+
+  <ko-component-page params="{label: 'View Model Lightbox', description: 'lightboxes can also have their own view models using the \'viewModel\' param'}">
+    <input type="button" value="Open Lightbox" data-bind="click: openLightbox">
+
+    <ko-lightbox params="{ visible: lightboxVisible, viewModel: lightboxVM }">
+      <div>This lightbox has its own view model</div><br>
+
+      Please enter your name: <input type="text" data-bind="textInput: name"><br>
+      Your name is: <span data-bind="text: name"></span><br><br>
+
+      You can also close the lightbox from that model<br>
+      <input type="button" data-bind="click: close" value="Close">
+    </ko-lightbox>
+
+    <ko-component-page-script>
+      {
+        lightboxVisible: ko.observable(false),
+        openLightbox: function(){
+          this.lightboxVisible(true);
+        },
+        lightboxVM: {
+          name: ko.observable(),
+          close: function(){
+            this.lightbox.close();
+          }
+        }
+      }
+    </ko-component-page-script>
+
+  </ko-component-page>
+
+  <script>
+    ko.applyBindings();
+  </script>
+
+</body>
+</html>
