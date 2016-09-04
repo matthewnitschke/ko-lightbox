@@ -35,4 +35,10 @@ These options are passed into the params on the component
 </ko-lightbox>
 ```
 
-Please see the examples folder for more examples
+# Running the Demo
+The demo file uses a [ko-component-page](https://github.com/matthewnitschke/ko-component-page) component to display each example. To run, first install dependencies
+```
+npm install
+```
+then open the demo file in chrome
+
