@@ -3,11 +3,12 @@ ko.components.register("ko-lightbox", {
         var self = this;
 
         var defaults = {
-            closeButton: true,
-            background: "#FFF"
+            allowOutsideClose: true,
+            background: "#FFF",
+            fullscreen: false
         }
 
-        var options = extend(defaults, params);
+        var options = ko.utils.extend(defaults, params);
 
         self.closeMethod = params.closeMethod;
 
@@ -21,8 +22,15 @@ ko.components.register("ko-lightbox", {
 
         self.visible = params.visible;
 
-        self.closeButton = options.closeButton;
+        self.allowOutsideClose = options.allowOutsideClose;
         self.background = options.background;
+        self.fullscreen = options.fullscreen;
+
+        self.outsideClose = function () {
+            if (ko.unwrap(self.allowOutsideClose)) {
+                self.close();
+            }
+        }
 
         self.close = function () {
             if (self.closeMethod) {
@@ -31,20 +39,14 @@ ko.components.register("ko-lightbox", {
             self.visible(false);
         }
 
-        function extend(a, b) {
-            for (var key in b)
-                if (b.hasOwnProperty(key))
-                    a[key] = b[key];
-            return a;
-        }
-
     },
-    template: "<div class='ko__lightbox' data-bind='visible: visible'>\
-              <div class='ko__lightbox-content-wrapper' data-bind='with: viewModel'>\
-                <div class='ko__lightbox-close-button' data-bind='if: $parent.closeButton'><i class='fa fa-times' aria-hidden='true' data-bind='click: $parent.close'></i></div>\
-                <div class='ko__lightbox-content' data-bind='attr: {style: \"background-color: \" + $parent.background} '>\
-                  <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
-                </div>\
-              </div>\
-            </div>"
+    //Needs a link to ko-lightbox.css to work properly
+    template: "<div class='ko-lightbox-flex-container' data-bind='visible: visible'>\
+                    <div class='ko__lightbox-content-wrapper' data-bind='with: viewModel, css: {\"ko__lightbox-content-wrapper-fullscreen\": $component.fullscreen}'>\
+                        <div class='ko__lightbox-content' data-bind='attr: {style: \"background-color: \" + $parent.background}, css: {\"ko__lightbox-content-fullscreen\": $parent.fullscreen} '>\
+                        <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
+                        </div>\
+                    </div>\
+                    <div class='ko__lightbox-overlay' data-bind='click: outsideClose'></div>\
+              </div>"
 });
