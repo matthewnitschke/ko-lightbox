@@ -23,14 +23,14 @@ These options are passed into the params on the component
 
 | Option Key  | Default Value | Explination |
 |-------------|---------------|-------------|
-| closeButton | true          | Shows/Hides the close button |
+| allowOutsideClose | true          | Allows the backround to close the lightbox|
 | background  | '#FFF'        | The background color of the lightbox |
 | viewModel   | null          | A view model for the lightbox |
 | closeMethod | null          | A method that is run when the lightbox is closed |
 
 ## Options Example
 ```html
-<ko-lightbox params="{visible: isVisible, closeButton: false, background: '#BBB'}">
+<ko-lightbox params="{visible: isVisible, allowOutsideClose: false, background: '#BBB'}">
   <div>I'm a lightbox!</div>
 </ko-lightbox>
 ```

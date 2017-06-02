@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+  <title>Component Page</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
+
+  <link rel="stylesheet" href="https://matthewnitschke.github.io/ko-component-page/dist/ko-component-page.css">
+  <script src="https://matthewnitschke.github.io/ko-component-page/dist/ko-component-page.js"></script>
+
+  <link rel="stylesheet" href="dist/ko-lightbox.css">
+  <script src="dist/ko-lightbox.js"></script>
+</head>
+
+<body>
+  <ko-component-page params="{componentName: 'ko-lightbox'}">
+
+    <ko-component-parameters>
+      <ko-component-parameter required params="{name: 'visible', type: 'Observable<Bool>', description: 'hides or shows the lightbox'}"></ko-component-parameter>
+      <ko-component-parameter params="{name: 'background', type: 'String', description: 'the color of the background of the lightbox'}"></ko-component-parameter>
+      <ko-component-parameter params="{name: 'fullscreen', type: 'Bool', description: 'if the lightbox should take up the entire screen'}"></ko-component-parameter>
+      <ko-component-parameter params="{name: 'viewModel', type: 'object', description: 'the object context of the lightbox'}"></ko-component-parameter>
+      <ko-component-parameter params="{name: 'closeMethod', type: 'function', description: 'a method that is run when the lightbox is closed'}"></ko-component-parameter>
+    </ko-component-parameters>
+
+    <ko-component-examples>
+
+      <ko-component-example params="{label: 'Basic', description: ''}">
+        <ko-lightbox params="{visible: visible}">
+          This is a lightbox
+        </ko-lightbox>
+
+        <input type="button" data-bind="click: show" value="Show">
+
+        <ko-component-example-script>
+          { visible: ko.observable(false), show: function() { this.visible(true) } }
+        </ko-component-example-script>
+      </ko-component-example>
+
+
+      <ko-component-example params="{label: '', description: ''}">
+        <ko-lightbox params="{visible: visible, viewModel: vm}">
+          <div data-bind="text: value"></div>
+        </ko-lightbox>
+
+        <input type="button" data-bind="click: show" value="Show">
+        <ko-component-example-script>
+          { visible: ko.observable(false), show: function() { this.visible(true) }, vm: { value: ko.observable("This is a child value") } }
+        </ko-component-example-script>
+      </ko-component-example>
+
+
+      <ko-component-example params="{label: '', description: ''}">
+        <ko-lightbox params="{visible: visible, allowOutsideClose: false}">
+          <div>You cant close me by clicking out</div>
+          <input type="button" data-bind="click: close" value="Close">
+        </ko-lightbox>
+
+        <input type="button" data-bind="click: show" value="Show">
+
+        <ko-component-example-script>
+          {
+            visible: ko.observable(false),
+            show: function() { this.visible(true) },
+          }
+        </ko-component-example-script>
+      </ko-component-example>
+
+    </ko-component-examples>
+
+  </ko-component-page>
+
+  <script>
+    ko.applyBindings();
+  </script>
+</body>
+
+</html>
