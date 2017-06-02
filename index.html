@@ -33,9 +33,35 @@
         <input type="button" data-bind="click: show" value="Show">
 
         <ko-component-example-script>
+          { visible: ko.observable(false), show: function() { this.visible(true) } }
+        </ko-component-example-script>
+      </ko-component-example>
+
+
+      <ko-component-example params="{label: '', description: ''}">
+        <ko-lightbox params="{visible: visible, viewModel: vm}">
+          <div data-bind="text: value"></div>
+        </ko-lightbox>
+
+        <input type="button" data-bind="click: show" value="Show">
+        <ko-component-example-script>
+          { visible: ko.observable(false), show: function() { this.visible(true) }, vm: { value: ko.observable("This is a child value") } }
+        </ko-component-example-script>
+      </ko-component-example>
+
+
+      <ko-component-example params="{label: '', description: ''}">
+        <ko-lightbox params="{visible: visible, allowOutsideClose: false}">
+          <div>You cant close me by clicking out</div>
+          <input type="button" data-bind="click: close" value="Close">
+        </ko-lightbox>
+
+        <input type="button" data-bind="click: show" value="Show">
+
+        <ko-component-example-script>
           {
             visible: ko.observable(false),
-            show: function() { this.visible(true) }
+            show: function() { this.visible(true) },
           }
         </ko-component-example-script>
       </ko-component-example>
