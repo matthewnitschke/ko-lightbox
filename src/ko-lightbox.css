@@ -28,6 +28,8 @@
     z-index: 999;
     overflow-y: scroll;
     margin-top: -4rem; /* Offsets the popup window. It looks better higher like this*/
+    -webkit-transform: translate3d(0,0,0); /* Fixes Lightbox issues on Safari */
+
 }
 
 .ko__lightbox-content {
